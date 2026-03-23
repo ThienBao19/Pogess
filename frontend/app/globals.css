@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #121212;
+  --color-ink-light: #3d3d3d;
+  --color-ink-muted: #767676;
+  --color-paper: #faf9f7;
+  --color-paper-warm: #f5f0e8;
+  --color-border: #d9d0c1;
+  --color-accent: #c4160a;
+  --color-accent-dark: #9e1108;
+  --color-link: #326891;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ───────────────────────────────────────── */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.article-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.article-body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--color-ink-light);
+}
+
+/* ── Newspaper dividers ───────────────────────────────── */
+.section-divider {
+  border-top: 3px solid var(--color-ink);
+  padding-top: 0.5rem;
+}
+
+.section-divider-thin {
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Article card hover ───────────────────────────────── */
+.article-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* ── Category badge ───────────────────────────────────── */
+.category-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ── Button base ──────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-ink);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-ink-light);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-ink);
+  border: 1.5px solid var(--color-ink);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-ink);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* ── Input ────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 2px;
+  background: white;
+  color: var(--color-ink);
+  transition: border-color 0.15s ease;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-ink);
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+/* ── Admin sidebar ────────────────────────────────────── */
+.admin-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--color-ink);
+  color: white;
+}
