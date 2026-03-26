@@ -21,18 +21,19 @@ function generateTokens(payload) {
  */
 function setAuthCookies(res, accessToken, refreshToken) {
   const isSecure = process.env.COOKIE_SECURE === 'true';
+  const sameSiteMode = isSecure ? 'none' : 'lax';
 
   res.cookie('token', accessToken, {
     httpOnly: true,
     secure: isSecure,
-    sameSite: 'lax',
+    sameSite: sameSiteMode,
     maxAge: 24 * 60 * 60 * 1000, // 24h
   });
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
     secure: isSecure,
-    sameSite: 'lax',
+    sameSite: sameSiteMode,
     path: '/api/auth/refresh', // only sent to refresh endpoint
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
   });
@@ -165,8 +166,22 @@ async function refreshToken(req, res, next) {
 
 // ── Logout ────────────────────────────────────────────────────
 function logout(req, res) {
-  res.clearCookie('token');
-  res.clearCookie('refreshToken', { path: '/api/auth/refresh' });
+  const isSecure = process.env.COOKIE_SECURE === 'true';
+  const sameSiteMode = isSecure ? 'none' : 'lax';
+
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: isSecure,
+    sameSite: sameSiteMode,
+  });
+  
+  res.clearCookie('refreshToken', { 
+    path: '/api/auth/refresh',
+    httpOnly: true,
+    secure: isSecure,
+    sameSite: sameSiteMode,
+  });
+  
   return res.json({ message: 'Logged out successfully' });
 }
 
