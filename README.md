@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # The Daily Press — NYT-Style News Website
 
 A full-stack news aggregation platform built with Next.js, Node.js/Express, Supabase, and the New York Times API.
@@ -64,6 +63,5 @@ npm run dev       # starts on http://localhost:3000
 ## Default Admin Setup
 
 After registering, manually set `role = 'admin'` in the Supabase `users` table for your account.
-=======
-# Pogess
->>>>>>> d9c1f1e703c9ea637ab4b8824d0733f07d5b5ad3
+
+
