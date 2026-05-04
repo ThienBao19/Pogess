@@ -61,8 +61,6 @@ npm run dev       # starts on http://localhost:3000
 | News Data | New York Times API |
 
 ## Default Admin Setup
-
-After registering, manually set `role = 'admin'` in the Supabase `users` table for your account.
 Admin account :
-mail : baoh1605@gmail.com
-pass : $2b$12$f7x45YpnaZM.ONZCttt8BOXW7bh3QtCuEqTCn4xpvPxqpbEZUgqDu
+mail : admin@gmail.com
+pass : 123456
